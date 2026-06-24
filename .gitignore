@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.env
+*.log
+*.db
+*.parquet
+ILSA Survey Literature Review/
+.claude/
