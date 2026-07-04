@@ -12,23 +12,34 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:     #0b0e18;  /* page background — deepest dark */
-      --ink2:    #1e2436;  /* card / surface layer */
-      --ink3:    #7a8499;  /* muted text — captions, labels */
-      --white:   #ffffff;  /* primary text on dark */
-      --off:     #eef0f5;  /* near-white for secondary text */
-      --cream:   #f5f3ee;  /* warm off-white accent surface */
-      --indigo:  #b07c22;  /* primary accent dark — buttons, borders */
-      --indigo2: #d4a03c;  /* primary accent mid — hover, active */
-      --cyan:    #2d7a8a;  /* secondary accent dark — supporting elements */
-      --cyan2:   #6ab4c4;  /* secondary accent light — labels, eyebrows */
-      --orange:  #b07c22;  /* maps to primary gold — kept for compat */
-      --orange2: #d4a03c;  /* maps to primary gold light */
-      --rose:    #a07030;  /* warm muted gold — tertiary highlights */
-      --rose2:   #c89a58;  /* warm muted gold light */
-      --mono:    'DM Mono', monospace;
-      --serif:   'Lora', serif;
-      --display: 'Sora', sans-serif;
+      /* ── BASE SURFACES ── */
+      --ink:     #0a0e1a;  /* Page background — exact dark navy, unchanged */
+      --ink2:    #131726;  /* Elevated surface — cards, panels (1 step above base) */
+      --ink3:    #6e7a94;  /* Tertiary text — captions, placeholders; WCAG AA large */
+
+      /* ── TEXT ── */
+      --white:   #dce4f0;  /* Primary body text — cool off-white; WCAG AAA (≈13:1) */
+      --off:     #a8b4cc;  /* Secondary text — metadata, labels; WCAG AAA (≈7.8:1) */
+      --cream:   #1a2038;  /* Subtle tinted surface — blockquotes, aside backgrounds */
+
+      /* ── PRIMARY ACCENT: INSTITUTIONAL STEEL BLUE ── */
+      --indigo:  #1e4d6e;  /* Primary dark — interactive borders, button fills */
+      --indigo2: #7aaec8;  /* Primary light — links, heading accents; WCAG AAA (≈8.1:1) */
+
+      /* ── SECONDARY ACCENT: ACADEMIC AMBER ── */
+      --cyan:    #4a3a18;  /* Secondary dark — data highlight backgrounds, tag fills */
+      --cyan2:   #c8aa68;  /* Secondary light — key stats, pull quotes; WCAG AAA (≈8.7:1) */
+
+      /* ── SEMANTIC: MUTED ACADEMIC STATES ── */
+      --orange:  #3a2e10;  /* Warning surface — desaturated amber background */
+      --orange2: #b89040;  /* Warning text — muted gold; WCAG AA (≈6.6:1) */
+      --rose:    #3a1818;  /* Error surface — muted burgundy background */
+      --rose2:   #a07878;  /* Error text — desaturated rose; WCAG AA (≈5.1:1) */
+
+      /* ── TYPOGRAPHY ── */
+      --mono:    'DM Mono', monospace;   /* Code blocks, data tables, methodology */
+      --serif:   'Lora', serif;          /* Pull quotes, abstracts, display italics */
+      --display: 'Sora', sans-serif;     /* Headings, navigation, UI elements */
     }
 
     html { scroll-behavior: smooth; }
