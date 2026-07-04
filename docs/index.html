@@ -391,12 +391,7 @@
     .limit-item:last-child { border-bottom: none; }
     .limit-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
     .limit-text { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
-    .future-block { padding: 32px; background: var(--white); border: 1px solid rgba(10,14,26,.1); }
-    .future-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--indigo); margin-bottom: 16px; font-family: var(--mono); }
-    .future-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(10,14,26,.06); align-items: flex-start; }
-    .future-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .future-arrow { color: var(--indigo); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .future-text { font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
+    .future-col-head { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 0; padding-bottom: 16px; border-bottom: 1px solid rgba(10,14,26,.08); letter-spacing: -0.01em; }
 
     /* ─── CITATION ─── */
     #citation { background: var(--ink); }
@@ -1010,29 +1005,27 @@
           <p class="limit-text">The extraction schema captures the primary ML method but does not code all hyperparameter choices, ensemble configurations, or secondary analytical decisions reported in the original papers.</p>
         </div>
       </div>
-      <div>
-        <div class="future-block">
-          <div class="future-label">Future directions</div>
-          <div class="future-item">
-            <div class="future-arrow">→</div>
-            <div class="future-text">Multilingual extension of the systematic search to capture non-English ILSA-ML studies</div>
-          </div>
-          <div class="future-item">
-            <div class="future-arrow">→</div>
-            <div class="future-text">Statistical meta-analysis of effect sizes and predictor importance for common outcome-domain pairs</div>
-          </div>
-          <div class="future-item">
-            <div class="future-arrow">→</div>
-            <div class="future-text">Formal replication study applying correct PV and weight protocols to published ML analyses</div>
-          </div>
-          <div class="future-item">
-            <div class="future-arrow">→</div>
-            <div class="future-text">Causal inference methods, a rapidly growing subfield not fully captured in the current corpus</div>
-          </div>
-          <div class="future-item">
-            <div class="future-arrow">→</div>
-            <div class="future-text">Process data and log-file applications as a dedicated sub-review, given growth in this area since PISA 2022</div>
-          </div>
+      <div class="limit-col">
+        <div class="future-col-head">Future Directions</div>
+        <div class="limit-item">
+          <div class="limit-title">Multilingual extension</div>
+          <p class="limit-text">Multilingual extension of the systematic search to capture non-English ILSA-ML studies.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-title">Statistical meta-analysis</div>
+          <p class="limit-text">Statistical meta-analysis of effect sizes and predictor importance for common outcome-domain pairs.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-title">Formal replication study</div>
+          <p class="limit-text">Formal replication study applying correct PV and weight protocols to published ML analyses.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-title">Causal inference methods</div>
+          <p class="limit-text">Causal inference methods, a rapidly growing subfield not fully captured in the current corpus.</p>
+        </div>
+        <div class="limit-item">
+          <div class="limit-title">Process data and log-file applications</div>
+          <p class="limit-text">Process data and log-file applications as a dedicated sub-review, given growth in this area since PISA 2022.</p>
         </div>
       </div>
     </div>
