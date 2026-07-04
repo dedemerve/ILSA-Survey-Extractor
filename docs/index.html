@@ -704,34 +704,34 @@
         </thead>
         <tbody>
           <tr>
-            <td class="td-sheet">1_Articles_Master</td>
+            <td class="td-sheet">Articles</td>
             <td><div class="td-count ind">130</div></td>
             <td class="td-desc">
-              One row per article. Full article-level metadata plus structured fields for ML method, sample characteristics, plausible value handling, sampling weight usage, and controlled-vocabulary filter labels.
+              One record per study containing publication metadata, AI/ML methods, study design, survey methodology, and quality indicators.
               <div class="td-tags">
-                <span class="td-tag">doi</span><span class="td-tag">ml_techniques</span><span class="td-tag">pv_filter_label</span><span class="td-tag">weights_filter</span><span class="td-tag">study_filter_type</span><span class="td-tag">ml_family</span>
+                <span class="td-tag">DOI</span><span class="td-tag">ML techniques</span><span class="td-tag">ML family</span><span class="td-tag">PV handling</span><span class="td-tag">Sampling weights</span><span class="td-tag">Study type</span>
               </div>
             </td>
             <td class="td-desc">38 columns · article unit</td>
           </tr>
           <tr>
-            <td class="td-sheet">2_Main_Findings</td>
+            <td class="td-sheet">Findings</td>
             <td><div class="td-count cyn">203</div></td>
             <td class="td-desc">
-              One row per finding. Includes dataset used, target variable, top predictors, performance metrics, standardized conclusion text, and taxonomy labels for domain and dimension.
+              One record per reported finding, including the ILSA program, assessment cycle, outcome, key predictors, model performance, and standardized evidence labels.
               <div class="td-tags">
-                <span class="td-tag">target_variable</span><span class="td-tag">top_predictors</span><span class="td-tag">performance_metrics</span><span class="td-tag">target_domain</span>
+                <span class="td-tag">DOI</span><span class="td-tag">Target variable</span><span class="td-tag">Top predictors</span><span class="td-tag">Performance metrics</span><span class="td-tag">Outcome domain</span>
               </div>
             </td>
             <td class="td-desc">16 columns · finding unit</td>
           </tr>
           <tr>
-            <td class="td-sheet">3_Confounders</td>
+            <td class="td-sheet">Predictors</td>
             <td><div class="td-count org">1,907</div></td>
             <td class="td-desc">
-              One row per variable–study pair. Variable name, schema category, predictor level (student / school / system), and predictor category under a controlled taxonomy.
+              One record per predictor–study pair with standardized variable names, educational level, and controlled taxonomy labels.
               <div class="td-tags">
-                <span class="td-tag">variable_name</span><span class="td-tag">category</span><span class="td-tag">predictor_level</span><span class="td-tag">predictor_category</span>
+                <span class="td-tag">DOI</span><span class="td-tag">Variable name</span><span class="td-tag">Category</span><span class="td-tag">Predictor level</span><span class="td-tag">Predictor category</span>
               </div>
             </td>
             <td class="td-desc">10 columns · variable unit</td>
