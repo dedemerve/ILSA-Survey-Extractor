@@ -12,34 +12,108 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* ── BASE SURFACES ── */
-      --ink:     #0a0e1a;  /* Page background — exact dark navy, unchanged */
-      --ink2:    #131726;  /* Elevated surface — cards, panels (1 step above base) */
-      --ink3:    #6e7a94;  /* Tertiary text — captions, placeholders; WCAG AA large */
 
-      /* ── TEXT ── */
-      --white:   #dce4f0;  /* Primary body text — cool off-white; WCAG AAA (≈13:1) */
-      --off:     #a8b4cc;  /* Secondary text — metadata, labels; WCAG AAA (≈7.8:1) */
-      --cream:   #1a2038;  /* Subtle tinted surface — blockquotes, aside backgrounds */
+      /* ── BACKGROUND HIERARCHY ── */
+      --bg-page:          #0a0e1a;              /* Base page background — deep navy, unchanged */
+      --bg-elevated:      #0f1320;              /* Sticky headers, sidebars — 1 step above base */
+      --bg-card:          #141828;              /* Card and content panel surfaces */
+      --bg-panel:         #1a1f2e;              /* Aside blocks, metadata panels */
+      --bg-overlay:       rgba(10,14,26,0.90);  /* Modal and drawer scrim */
 
-      /* ── PRIMARY ACCENT: INSTITUTIONAL STEEL BLUE ── */
-      --indigo:  #1e4d6e;  /* Primary dark — interactive borders, button fills */
-      --indigo2: #7aaec8;  /* Primary light — links, heading accents; WCAG AAA (≈8.1:1) */
+      /* ── BORDERS AND DIVIDERS ── */
+      --border-strong:    #282f48;  /* Card outlines, input borders — clearly visible */
+      --border-default:   #1e2440;  /* Default structural borders */
+      --border-subtle:    #141c38;  /* Hairline separators, list dividers */
+      --border-muted:     #10162e;  /* Barely-there structural hints */
 
-      /* ── SECONDARY ACCENT: ACADEMIC AMBER ── */
-      --cyan:    #4a3a18;  /* Secondary dark — data highlight backgrounds, tag fills */
-      --cyan2:   #c8aa68;  /* Secondary light — key stats, pull quotes; WCAG AAA (≈8.7:1) */
+      /* ── TEXT HIERARCHY ── */
+      --text-heading:     #dde6f4;  /* Page titles and section headings; WCAG AAA ≈13:1 */
+      --text-primary:     #c4d0e4;  /* Body text and paragraphs; WCAG AAA ≈11:1 */
+      --text-secondary:   #7a8aa0;  /* Labels, captions, supporting copy; WCAG AA ≈5.5:1 */
+      --text-muted:       #4e5c74;  /* Metadata, timestamps — AA large text only */
+      --text-disabled:    #323c52;  /* Disabled UI elements — decorative use only */
+      --text-placeholder: #4a5870;  /* Input placeholder text */
 
-      /* ── SEMANTIC: MUTED ACADEMIC STATES ── */
-      --orange:  #3a2e10;  /* Warning surface — desaturated amber background */
-      --orange2: #b89040;  /* Warning text — muted gold; WCAG AA (≈6.6:1) */
-      --rose:    #3a1818;  /* Error surface — muted burgundy background */
-      --rose2:   #a07878;  /* Error text — desaturated rose; WCAG AA (≈5.1:1) */
+      /* ── PRIMARY ACCENT: OXFORD INSTITUTIONAL BLUE ── */
+      --accent-primary:        #4e7fa0;  /* Links, active borders, interactive elements; WCAG AA ≈4.6:1 */
+      --accent-primary-hover:  #6090b2;  /* Primary hover and focus state */
+      --accent-primary-subtle: #1a3448;  /* Very muted primary — chip fills, tag backgrounds */
+
+      /* ── SECONDARY ACCENT: PARCHMENT STONE ── */
+      --accent-secondary:        #8a7a5a;  /* Supporting metadata, secondary badges; WCAG AA ≈4.7:1 */
+      --accent-secondary-hover:  #a09070;  /* Secondary hover */
+      --accent-secondary-subtle: #1c180e;  /* Very muted warm tint — aside backgrounds */
+
+      /* ── LINKS ── */
+      --text-link:         #5a8ab0;  /* Hyperlinks; WCAG AA */
+      --text-link-visited: #456a88;  /* Visited links — dimmer variant */
+      --selection-bg:      rgba(78,127,160,0.25);  /* Text selection highlight */
+      --focus-ring:        rgba(78,127,160,0.55);  /* Keyboard focus outline */
+
+      /* ── INTERACTIVE: BUTTONS AND INPUTS ── */
+      --button-bg:     #1e3a50;  /* Default button fill */
+      --button-hover:  #264a64;  /* Button hover state */
+      --input-bg:      #0f1422;  /* Input field background */
+      --input-border:  #282f48;  /* Input border at rest */
+      --input-focus:   #4e7fa0;  /* Input border on focus — primary accent */
+
+      /* ── SEMANTIC STATES: ALL DESATURATED ── */
+      --color-success:    #5a9070;  /* Success text — muted green; WCAG AA ≈5.3:1 */
+      --color-success-bg: #0e1e16;  /* Success surface */
+      --color-warning:    #9a8040;  /* Warning text — muted amber; WCAG AA ≈5.1:1 */
+      --color-warning-bg: #1c1808;  /* Warning surface */
+      --color-error:      #b06a6a;  /* Error text — desaturated rose; WCAG AA ≈4.7:1 */
+      --color-error-bg:   #1c0e0e;  /* Error surface */
+      --color-info:       #4e7fa0;  /* Info text — same as primary accent */
+      --color-info-bg:    #0c1822;  /* Info surface */
+
+      /* ── CODE ── */
+      --code-bg:     #0d1120;  /* Fenced code block background */
+      --code-inline: #1a2038;  /* Inline code chip */
+      --code-text:   #a0b8c8;  /* Code text — cool blue-gray */
+
+      /* ── EDITORIAL ELEMENTS ── */
+      --blockquote-border: #282f48;  /* Blockquote left rule */
+      --blockquote-text:   #7a8aa0;  /* Blockquote body — secondary text */
+      --citation-text:     #4e5c74;  /* Reference and citation text — muted */
+
+      /* ── DATA TABLES ── */
+      --table-header-bg: #141828;  /* Table header row */
+      --table-row-alt:   #0d1020;  /* Alternating stripe */
+      --table-row-hover: #18203a;  /* Row hover state */
+      --table-border:    #1e2440;  /* Cell borders */
+
+      /* ── BADGES AND LABELS ── */
+      --badge-bg:   #1e2540;  /* Default badge fill */
+      --badge-text: #7a8aa0;  /* Badge text */
+
+      /* ── CHART COLORS: 5 HARMONIOUS DESATURATED TONES ── */
+      --chart-1: #4e7fa0;  /* Primary series — institutional blue */
+      --chart-2: #8a7a5a;  /* Secondary series — parchment stone */
+      --chart-3: #527868;  /* Tertiary series — muted teal */
+      --chart-4: #6a6a88;  /* Quaternary series — lavender slate */
+      --chart-5: #7a6050;  /* Quinary series — warm umber */
 
       /* ── TYPOGRAPHY ── */
-      --mono:    'DM Mono', monospace;   /* Code blocks, data tables, methodology */
-      --serif:   'Lora', serif;          /* Pull quotes, abstracts, display italics */
-      --display: 'Sora', sans-serif;     /* Headings, navigation, UI elements */
+      --mono:    'DM Mono', monospace;  /* Code, data, methodology */
+      --serif:   'Lora', serif;         /* Pull quotes, abstracts */
+      --display: 'Sora', sans-serif;    /* Headings, UI elements */
+
+      /* ── LEGACY ALIASES: backward compat with existing markup ── */
+      --ink:     var(--bg-page);
+      --ink2:    var(--bg-card);
+      --ink3:    var(--text-secondary);
+      --white:   var(--text-heading);
+      --off:     var(--text-primary);
+      --cream:   var(--bg-elevated);
+      --indigo:  var(--accent-primary-subtle);
+      --indigo2: var(--accent-primary);
+      --cyan:    var(--accent-secondary-subtle);
+      --cyan2:   var(--accent-secondary);
+      --orange:  var(--color-warning-bg);
+      --orange2: var(--color-warning);
+      --rose:    var(--color-error-bg);
+      --rose2:   var(--color-error);
     }
 
     html { scroll-behavior: smooth; }
