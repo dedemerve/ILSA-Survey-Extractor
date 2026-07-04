@@ -383,15 +383,29 @@
     /* ─── LIMITATIONS ─── */
     #limitations { background: var(--off); }
     .limit-inner { max-width: 1100px; margin: 0 auto; padding: 100px 40px; }
-    .limit-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; align-items: start; }
-    @media (max-width: 700px) { .limit-split { grid-template-columns: 1fr; } }
-    .limit-col { display: flex; flex-direction: column; gap: 0; }
-    .limit-item { padding: 24px 0; border-bottom: 1px solid rgba(10,14,26,.08); }
-    .limit-item:first-child { padding-top: 0; }
-    .limit-item:last-child { border-bottom: none; }
-    .limit-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
-    .limit-text { font-size: 13.5px; color: var(--ink2); line-height: 1.65; }
-    .future-col-head { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 0; padding-bottom: 16px; border-bottom: 1px solid rgba(10,14,26,.08); letter-spacing: -0.01em; }
+    .limit-section-head { margin-bottom: 40px; }
+    .limit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 80px; }
+    @media (max-width: 900px) { .limit-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .limit-grid { grid-template-columns: 1fr; } }
+    .limit-card {
+      background: var(--white); border-radius: 12px;
+      padding: 28px 28px 24px; border: 1px solid rgba(10,14,26,.07);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .limit-card-icon { font-size: 20px; margin-bottom: 4px; }
+    .limit-title { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .limit-text { font-size: 13px; color: var(--ink2); line-height: 1.65; flex: 1; }
+    .future-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .future-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .future-grid { grid-template-columns: 1fr; } }
+    .future-card {
+      background: var(--white); border-radius: 12px;
+      padding: 28px 28px 24px; border: 1px solid rgba(67,56,202,.12);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .future-num { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--indigo2); font-family: var(--mono); }
+    .future-title { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+    .future-text { font-size: 13px; color: var(--ink2); line-height: 1.65; flex: 1; }
 
     /* ─── CITATION ─── */
     #citation { background: var(--ink); }
@@ -985,52 +999,60 @@
   <div class="limit-inner">
     <div class="sec-num">Limitations</div>
 
-    <div class="limit-split">
-      <div class="limit-col">
-        <h2><span class="accent-o">Known constraints</span></h2>
-        <div class="limit-item" style="margin-top:32px;">
-          <div class="limit-title">English-language restriction</div>
-          <p class="limit-text">The search was restricted to English-language publications. Studies in Chinese, Spanish, Turkish, and other languages may represent a non-trivial share of the ILSA-ML literature and are not captured here.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Single primary database</div>
-          <p class="limit-text">The primary search was conducted in Web of Science, supplemented by Google Scholar snowballing (n = 20). Studies indexed exclusively outside Web of Science may be underrepresented, particularly conference proceedings and regional journals.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Search date cutoff</div>
-          <p class="limit-text">The corpus covers January 2020 to April 2026. Methodological advances published after this date are not reflected in the synthesis.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Reporting incompleteness</div>
-          <p class="limit-text">Many studies do not explicitly state their plausible value protocol or sampling weight decisions. Rigor coding for these studies relies on textual inference, introducing some classification uncertainty.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Extraction schema granularity</div>
-          <p class="limit-text">The schema captures the primary ML method and top-level model characteristics. Hyperparameter choices, ensemble configurations, and secondary analytical decisions are not systematically coded.</p>
-        </div>
+    <div class="limit-section-head">
+      <h2><span class="accent-o">Known constraints</span></h2>
+    </div>
+    <div class="limit-grid">
+      <div class="limit-card">
+        <div class="limit-title">English-language restriction</div>
+        <p class="limit-text">The search was restricted to English-language publications. Studies in Chinese, Spanish, Turkish, and other languages may represent a non-trivial share of the ILSA-ML literature and are not captured here.</p>
       </div>
-      <div class="limit-col">
-        <h2><span class="accent-i">Future Directions</span></h2>
-        <div class="limit-item">
-          <div class="limit-title">Multilingual extension</div>
-          <p class="limit-text">Systematic replication of the search in non-English databases to assess whether the patterns identified here hold across a broader linguistic corpus.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Statistical meta-analysis</div>
-          <p class="limit-text">Where studies report comparable performance metrics for the same outcome-domain pair, quantitative meta-analytic synthesis would enable more precise estimation of predictor importance and cross-study heterogeneity.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Formal replication with correct psychometric protocols</div>
-          <p class="limit-text">A targeted replication applying Rubin's Rules across all ten plausible values and appropriate variance estimation to published ML analyses, to assess sensitivity to these methodological choices.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Causal inference integration</div>
-          <p class="limit-text">Causal inference methods applied to ILSA data represent a rapidly growing subfield not fully captured in the current corpus and warrant a dedicated review.</p>
-        </div>
-        <div class="limit-item">
-          <div class="limit-title">Process data as a dedicated sub-review</div>
-          <p class="limit-text">Log-file and clickstream data from PISA 2022 and TIMSS 2023 represent a qualitatively distinct data type. A focused sub-review would allow more granular analysis of behavioral indicators and sequence modeling approaches.</p>
-        </div>
+      <div class="limit-card">
+        <div class="limit-title">Single primary database</div>
+        <p class="limit-text">The primary search was conducted in Web of Science, supplemented by Google Scholar snowballing (n = 20). Studies indexed exclusively outside Web of Science may be underrepresented, particularly conference proceedings and regional journals.</p>
+      </div>
+      <div class="limit-card">
+        <div class="limit-title">Search date cutoff</div>
+        <p class="limit-text">The corpus covers January 2020 to April 2026. Methodological advances published after this date are not reflected in the synthesis.</p>
+      </div>
+      <div class="limit-card">
+        <div class="limit-title">Reporting incompleteness</div>
+        <p class="limit-text">Many studies do not explicitly state their plausible value protocol or sampling weight decisions. Rigor coding for these studies relies on textual inference, introducing some classification uncertainty.</p>
+      </div>
+      <div class="limit-card">
+        <div class="limit-title">Extraction schema granularity</div>
+        <p class="limit-text">The schema captures the primary ML method and top-level model characteristics. Hyperparameter choices, ensemble configurations, and secondary analytical decisions are not systematically coded.</p>
+      </div>
+    </div>
+
+    <div class="limit-section-head">
+      <h2><span class="accent-i">Future Directions</span></h2>
+    </div>
+    <div class="future-grid">
+      <div class="future-card">
+        <div class="future-num">01</div>
+        <div class="future-title">Multilingual extension</div>
+        <p class="future-text">Systematic replication of the search in non-English databases to assess whether the patterns identified here hold across a broader linguistic corpus.</p>
+      </div>
+      <div class="future-card">
+        <div class="future-num">02</div>
+        <div class="future-title">Statistical meta-analysis</div>
+        <p class="future-text">Where studies report comparable performance metrics for the same outcome-domain pair, quantitative meta-analytic synthesis would enable more precise estimation of predictor importance and cross-study heterogeneity.</p>
+      </div>
+      <div class="future-card">
+        <div class="future-num">03</div>
+        <div class="future-title">Formal replication with correct psychometric protocols</div>
+        <p class="future-text">A targeted replication applying Rubin's Rules across all ten plausible values and appropriate variance estimation to published ML analyses, to assess sensitivity to these methodological choices.</p>
+      </div>
+      <div class="future-card">
+        <div class="future-num">04</div>
+        <div class="future-title">Causal inference integration</div>
+        <p class="future-text">Causal inference methods applied to ILSA data represent a rapidly growing subfield not fully captured in the current corpus and warrant a dedicated review.</p>
+      </div>
+      <div class="future-card">
+        <div class="future-num">05</div>
+        <div class="future-title">Process data as a dedicated sub-review</div>
+        <p class="future-text">Log-file and clickstream data from PISA 2022 and TIMSS 2023 represent a qualitatively distinct data type. A focused sub-review would allow more granular analysis of behavioral indicators and sequence modeling approaches.</p>
       </div>
     </div>
   </div>
