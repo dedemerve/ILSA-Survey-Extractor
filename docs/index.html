@@ -421,8 +421,8 @@
     .cite-inner .sec-num { color: rgba(255,255,255,.25); }
     .cite-inner .sec-num::before { background: rgba(255,255,255,.2); }
     .cite-inner h2 { color: #fff; }
-    .cite-split { display: grid; grid-template-columns: 3fr 2fr; gap: 56px; margin-top: 56px; align-items: center; }
-    @media (max-width: 780px) { .cite-split { grid-template-columns: 1fr; } }
+    .cite-split { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 56px; }
+    .cite-split > div:first-child { width: 100%; max-width: 640px; }
     .cite-format-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 14px; font-family: var(--mono); }
     .bibtex-block {
       background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
