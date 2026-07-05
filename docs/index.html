@@ -413,7 +413,7 @@
     .cite-inner .sec-num { color: rgba(255,255,255,.25); }
     .cite-inner .sec-num::before { background: rgba(255,255,255,.2); }
     .cite-inner h2 { color: #fff; }
-    .cite-split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+    .cite-split { display: grid; grid-template-columns: 3fr 2fr; gap: 56px; margin-top: 56px; align-items: center; }
     @media (max-width: 780px) { .cite-split { grid-template-columns: 1fr; } }
     .cite-format-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 14px; font-family: var(--mono); }
     .bibtex-block {
@@ -726,7 +726,7 @@
                 <span class="td-tag">DOI</span><span class="td-tag">ML techniques</span><span class="td-tag">ML family</span><span class="td-tag">PV handling</span><span class="td-tag">Sampling weights</span><span class="td-tag">Study type</span>
               </div>
             </td>
-            <td class="td-desc">38 columns · One record per study</td>
+            <td class="td-desc">31 columns · One record per study</td>
           </tr>
           <tr>
             <td class="td-sheet">Findings</td>
@@ -737,7 +737,7 @@
                 <span class="td-tag">DOI</span><span class="td-tag">Target variable</span><span class="td-tag">Top predictors</span><span class="td-tag">Performance metrics</span><span class="td-tag">Outcome domain</span>
               </div>
             </td>
-            <td class="td-desc">16 columns · One record per finding</td>
+            <td class="td-desc">12 columns · One record per finding</td>
           </tr>
           <tr>
             <td class="td-sheet">Predictors</td>
@@ -748,7 +748,7 @@
                 <span class="td-tag">DOI</span><span class="td-tag">Variable name</span><span class="td-tag">Category</span><span class="td-tag">Predictor level</span><span class="td-tag">Predictor category</span>
               </div>
             </td>
-            <td class="td-desc">10 columns · One record per predictor</td>
+            <td class="td-desc">7 columns · One record per predictor</td>
           </tr>
         </tbody>
       </table>
@@ -781,11 +781,11 @@
         <div class="schema-caption">// controlled vocabulary taxonomy</div>
         <div class="tax-rows">
           <div class="tax-row">
-            <div class="tax-field">study_filter_type</div>
+            <div class="tax-field">source_category</div>
             <div class="tax-vals">
-              <span class="tax-val tv-i">Empirical ML</span>
-              <span class="tax-val tv-g">Traditional Stats</span>
-              <span class="tax-val tv-g">Framework</span>
+              <span class="tax-val tv-i">Peer-Reviewed</span>
+              <span class="tax-val tv-g">Review Article</span>
+              <span class="tax-val tv-g">Methodology Paper</span>
             </div>
           </div>
           <div class="tax-row">
@@ -817,8 +817,12 @@
           <div class="tax-row">
             <div class="tax-field">pv_filter_label</div>
             <div class="tax-vals">
+              <span class="tax-val tv-g">Not Applicable</span>
               <span class="tax-val tv-i">Rubin Rules</span>
               <span class="tax-val tv-o">Single PV</span>
+              <span class="tax-val tv-c">Average PVs</span>
+              <span class="tax-val tv-o">WLE/IRT</span>
+              <span class="tax-val tv-i">All PVs</span>
               <span class="tax-val tv-g">Not Reported</span>
             </div>
           </div>
@@ -878,23 +882,51 @@
             <div class="ml-pct pct-r">9%</div>
           </div>
         </div>
+        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Percentages are computed among 89 empirical ML studies. The remaining 41 Review/Methodology papers are excluded from this breakdown.</p>
 
         <div class="domains-block">
           <div class="domains-head">Outcome domains targeted</div>
-          <div class="domain-chips">
-            <div class="domain-chip"><div class="dchip-pct dp-g">34%</div><div class="dchip-lbl">Other / Unspecified</div></div>
-            <div class="domain-chip"><div class="dchip-pct dp-i">24%</div><div class="dchip-lbl">Composite / Multi-Domain</div></div>
+          <div class="domain-chips" style="flex-wrap:wrap;">
+            <div class="domain-chip"><div class="dchip-pct dp-g">33%</div><div class="dchip-lbl">Other / Unspecified</div></div>
+            <div class="domain-chip"><div class="dchip-pct dp-i">23%</div><div class="dchip-lbl">Composite / Multi-Domain</div></div>
             <div class="domain-chip"><div class="dchip-pct dp-c">12%</div><div class="dchip-lbl">Mathematics</div></div>
-            <div class="domain-chip"><div class="dchip-pct dp-r">11%</div><div class="dchip-lbl">Non-Cognitive</div></div>
+            <div class="domain-chip"><div class="dchip-pct dp-r">12%</div><div class="dchip-lbl">Non-Cognitive</div></div>
             <div class="domain-chip"><div class="dchip-pct dp-o">9%</div><div class="dchip-lbl">Reading</div></div>
             <div class="domain-chip"><div class="dchip-pct dp-i" style="color:var(--indigo2)">5%</div><div class="dchip-lbl">Problem Solving</div></div>
             <div class="domain-chip"><div class="dchip-pct dp-c" style="color:var(--cyan2)">4%</div><div class="dchip-lbl">Science</div></div>
+            <div class="domain-chip"><div class="dchip-pct dp-g" style="font-size:18px;">&lt;1%</div><div class="dchip-lbl">Civic Education</div></div>
           </div>
         </div>
       </div>
 
       <div>
-        <div class="rigor-head">Methodological rigor indicators</div>
+        <div class="rigor-head">Policy Actionability Framework</div>
+        <div class="rigor-rows">
+          <div class="rigor-row">
+            <div>
+              <div class="rigor-label">Mean actionability score (1–5 scale)</div>
+              <div class="rigor-bar-bg"><div class="rigor-bar" style="width:64%;background:var(--indigo);"></div></div>
+            </div>
+            <div class="rigor-score" style="color:var(--indigo);">3.21</div>
+          </div>
+          <div class="rigor-row">
+            <div>
+              <div class="rigor-label">SD across 130 studies</div>
+              <div class="rigor-bar-bg"><div class="rigor-bar" style="width:17%;background:var(--ink3);"></div></div>
+            </div>
+            <div class="rigor-score rs-md">0.87</div>
+          </div>
+          <div class="rigor-row">
+            <div>
+              <div class="rigor-label">High actionability — Score 4–5 (45 studies)</div>
+              <div class="rigor-bar-bg"><div class="rigor-bar" style="width:35%;background:var(--orange);"></div></div>
+            </div>
+            <div class="rigor-score rs-hi">35%</div>
+          </div>
+        </div>
+        <p style="font-size:11px;color:var(--ink3);margin-top:12px;line-height:1.5;">Three-dimensional rubric: inferential warrant × effect specification × population boundedness.</p>
+
+        <div class="rigor-head" style="margin-top:40px;">Methodological rigor indicators</div>
         <div class="rigor-rows">
           <div class="rigor-row">
             <div>
@@ -1080,7 +1112,7 @@
 }<button class="copy-btn" onclick="copyBibtex(this)">Copy</button></div>
       </div>
       <div>
-        <div style="margin-top:24px;">
+        <div>
           <div class="cite-format-label">Access</div>
           <a class="btn-hf" href="https://huggingface.co/datasets/dedemerve/ILSA-Survey-Dataset" target="_blank" rel="noopener" style="display:inline-flex;margin-top:0;">
             <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><circle cx="12" cy="12" r="11" fill="#FFD21E"/><ellipse cx="12" cy="13" rx="7" ry="6" fill="#FF9D00"/><ellipse cx="12" cy="13" rx="6" ry="5" fill="#FFD21E"/><ellipse cx="9.2" cy="10.5" rx="1.2" ry="1.4" fill="#1a1a1a"/><ellipse cx="14.8" cy="10.5" rx="1.2" ry="1.4" fill="#1a1a1a"/><path d="M8.5 14.5 Q12 17.5 15.5 14.5" stroke="#1a1a1a" stroke-width="1.2" fill="none" stroke-linecap="round"/><ellipse cx="4.5" cy="15" rx="2.5" ry="1.8" fill="#FFD21E" transform="rotate(-20 4.5 15)"/><ellipse cx="19.5" cy="15" rx="2.5" ry="1.8" fill="#FFD21E" transform="rotate(20 19.5 15)"/></svg>
@@ -1103,7 +1135,7 @@
   </div>
   <div class="footer-links">
     <a href="https://huggingface.co/datasets/dedemerve/ILSA-Survey-Dataset" target="_blank" rel="noopener">Dataset</a>
-    <a href="https://github.com/dedemerve/ILSA_Survey_Extractor" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://github.com/dedemerve/ILSA-Survey-Extractor" target="_blank" rel="noopener">GitHub</a>
     <a href="https://dedemerve.github.io" target="_blank" rel="noopener">Merve Dede</a>
     <a href="https://ekrcet.com/" target="_blank" rel="noopener">Ekrem Çetinkaya</a>
     <a href="#citation">Cite</a>
